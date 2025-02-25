@@ -61,6 +61,41 @@ docker run -p 8501:8501 dog-breed-assistant
 
 The application will be available at `http://localhost:8501`
 
+## Testing
+
+### Running Tests
+To run the test suite:
+```bash
+pytest
+```
+
+To run tests with coverage report:
+```bash
+pytest --cov=src tests/
+```
+
+### Test Structure
+- `tests/conftest.py`: Common test fixtures and configurations
+- `tests/test_pipeline_selector.py`: Tests for pipeline selection logic
+- `tests/test_nlu_pipeline.py`: Tests for natural language understanding pipeline
+- `tests/test_analytics_pipeline.py`: Tests for data analytics pipeline
+
+### Manual Testing
+1. Start the application:
+```bash
+streamlit run app.py
+```
+
+2. Try example queries:
+   - Natural Language: "What breeds are good with children?"
+   - Analytics: "Show me the top 5 longest living breeds"
+
+3. Verify responses for:
+   - Accuracy and relevance
+   - Pipeline selection correctness
+   - Error handling
+   - Response formatting
+
 ## Usage Examples
 
 ### Natural Language Queries
@@ -81,6 +116,11 @@ dog-breed-assistant/
 ├── requirements.txt       # Python dependencies
 ├── Dockerfile            # Docker configuration
 ├── README.md            # Project documentation
+├── tests/               # Test suite
+│   ├── conftest.py      # Test configurations
+│   ├── test_pipeline_selector.py
+│   ├── test_nlu_pipeline.py
+│   └── test_analytics_pipeline.py
 └── src/
     ├── data/            # Dataset directory
     ├── pipelines/       # Pipeline implementations
